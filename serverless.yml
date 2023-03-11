@@ -1,0 +1,17 @@
+service: my-lambda-service
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: ping
+          method: get
+      - http:
+          path: greet/{name}
+          method: get
